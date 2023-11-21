@@ -31,7 +31,7 @@
             $_SESSION["nome"] = $row->nome;
          }else{
             print"<script>alert('Usuario e/ou senha incorretos')</script>";
-            print"<script>location.href=index.html";
+            print"<script>location.href=index.html</script>";
          }
     ?>
 </body>
