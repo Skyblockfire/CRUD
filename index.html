@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .login{
+            display:block;
+            margin: 10px;
+            padding: 15px;
+            width: 170px;
+            border-radius: 15px;
+        }
+
+        div{
+            background-color: rgba(0, 0, 0, 0.9);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 80px;
+            border-radius: 20px;
+        }
+
+    </style>
+    <title>CRUD</title>
+</head>
+<body>
+    <div class="centralizado">
+        <h1 style="color:white; font-family: sans-serif;text-align: center;" class="login">Login</h1>
+        <form action="login.php" method="post">
+            <input class="login" type="text" placeholder="Usuário" name="usuario">
+            <input class="login" type="password" placeholder="Senha" name="Senha">
+            <input class="login" type="submit" value="Enviar" style="width:204px; font-weight: 800; font-size: 17px;">
+        </form>
+
+    </div>
+</body>
+</html>
