@@ -19,7 +19,7 @@ class userDAO{
         $sobrenome = $user->getSobrenome();
         $senha = $user->getSenha();
         $cpf = $user->getCpf();
-        $cnh = $user->getCnh();;
+        $cnh = $user->getCnh();
         $telefone = $user->getTelefone();
         $endereco = $user->getEndereco();
         $carro = $user->getCarro();
