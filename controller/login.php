@@ -1,13 +1,19 @@
 <?php 
     session_start();
 
-    include ("userDAO.php");
+    require_once("../model/database.php");
 
-    if(empty($CPF = $_POST['CPF']) || empty($_POST['Senha'])){
+    if(empty($CPF = $_POST['CPF']) || empty(($Senha = $_POST['Senha']))){
     session_destroy();
-    header('index.html');
+    header('../view/index.html');
     exit();
-    }
-    
+    }else{
+        $db = new Database();
+        if($db->verificar_login($CPF, $Senha)){
+            echo $_SESSION['name'];
+        }else{
+            echo 'deu ruim';
+        }
+    }    
     
 ?>
