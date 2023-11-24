@@ -29,11 +29,25 @@
                 }else{
                     $_SESSION['tipo'] = 0;
                 }
-                header('../view/home.php');
                 return true;
             }else{
                 //Senha incorreta [Criar aviso]
-                header('../view/index.html');
+                return false;
+            }
+        }
+    }
+
+    public function autentica_admin($cpf){
+        $query = $this->banco->prepare('SELECT admin FROM usuario WHERE cpf = :cpf');
+
+        $query->bindParam(':cpf', $cpf);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        if($row){
+            if($row['admin'] == 1){
+                return true;
+            }else{
                 return false;
             }
         }
