@@ -12,7 +12,8 @@
         if($db->verificar_login($CPF, $Senha)){
             echo $_SESSION['name'];
         }else{
-            echo 'deu ruim';
+           echo '<script>alert("Login Inválido")</script>';
+           echo '<script>location.href="../view/index.html"</script>';
         }
     }    
     

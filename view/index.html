@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <!--<script src="../Jquery/jquery-3.7.1.min.js"></script>-->
+  <!--<script src="../Jquery/jquery.maskedinput.min.js"></script> -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
     <style>
         .login{
             display:block;
@@ -12,7 +16,7 @@
             width: 204px;
             border-radius: 15px;
         }
-
+        
         div{
             background-color: rgba(0, 0, 0, 0.9);
             position: absolute;
@@ -30,12 +34,14 @@
     <div class="centralizado">
         <h1 style="color:white; font-family: sans-serif;text-align: center;" class="login" >Login</h1>
         <form action="../controller/login.php" method="post">
-            <input class="login" type="text" placeholder="CPF" name="CPF" required>
+            <input class="login" id="CPF" type="text" placeholder="CPF" name="CPF"  required>
             <input class="login" type="password" placeholder="Senha" name="Senha" required>
             <input class="login" type="submit" value="Enviar" style="width: 238px; font-weight: 800; font-size: 17px;">
         </form>
     </div>
+    <script>
+        $("#CPF").mask("999.999.999-99");
+    </script>
     
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
