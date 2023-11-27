@@ -2,7 +2,7 @@
     class User{
         public $id;
         private $admin;
-        public $name;
+        public $nome;
         public $sobrenome;
         public $senha;
         public $cpf;
@@ -10,7 +10,17 @@
         public $telefone;
         public $endereco;
         public $carro;
-        
+        public function __construct($nome, $sobrenome, $senha, $cpf, $cnh, $telefone, $endereco, $carro){
+                $this->admin = 0;
+                $this->nome = $nome;
+                $this->sobrenome = $sobrenome;
+                $this->senha = $senha;
+                $this->cpf = $cpf;
+                $this->cnh = $cnh;
+                $this->telefone = $telefone;
+                $this->endereco = $endereco;
+                $this->carro = $carro;
+            }
         public function getCarro()
         {
                 return $this->carro;
@@ -94,14 +104,14 @@
 
                 return $this;
         }
-        public function getName()
+        public function getNome()
         {
-                return $this->name;
+                return $this->nome;
         }
 
-        public function setName($name)
+        public function setNome($nome)
         {
-                $this->name = $name;
+                $this->name = $nome;
 
                 return $this;
         }
