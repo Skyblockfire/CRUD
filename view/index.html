@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <script src="../Jquery/jquery-3.7.1.min.js"></script>
     <script src="../Jquery/jquery.maskedinput.min.js"></script>
   
     <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+        
         .login{
             display:block;
             margin: 10px;
@@ -33,9 +39,9 @@
     <div class="centralizado">
         <h1 style="color:white; font-family: sans-serif;text-align: center;" class="login" >Login</h1>
         <form action="../controller/login.php" method="post">
-            <input class="login" id="CPF" type="text" placeholder="CPF" name="CPF" required>
+            <input class="login" id="CPF" type="number" placeholder="CPF" name="CPF" required>
             <input class="login" type="password" placeholder="Senha" name="Senha" required>
-            <input class="login" type="submit" value="Enviar" style="width: 238px; font-weight: 800; font-size: 17px;">
+            <input class="login" type="submit" value="Enviar" style="width: 204px; font-weight: 800; font-size: 17px;">
         </form>
     </div>
     

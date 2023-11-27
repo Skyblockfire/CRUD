@@ -11,7 +11,8 @@
     }else{
         $db = new Database();
         if($db->verificar_login($CPF, $Senha)){
-            echo "Seja bem vindo(a) {$_SESSION['name']}!";
+            $_SESSION['CPF'] = $CPF;
+            echo '<script>location.href="../view/home.php"</script>';
         }else{
            echo '<script>alert("Login Inválido")</script>';
            echo '<script>location.href="../view/index.html"</script>';
