@@ -1,8 +1,9 @@
 <?php
     session_start();
-    unset($_SESSION['teste']);
-    unset($_SESSION['']);
+    unset($_SESSION['CPF']);
+    unset($_SESSION['name']);
+    unset($_SESSION['tipo']);
 
-    header("index.php");
+    echo'<script>location.href="../view/index.html"</script>';
     exit();
 ?>
