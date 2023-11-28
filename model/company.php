@@ -7,7 +7,14 @@
         public $endereco;
         public $telefone;
         public $responsavel;
-
+        public function __construct($nome, $nome_fantasia, $cnpj, $endereco, $telefone, $responsavel){
+                $this->nome = $nome;
+                $this->nome_fantasia = $nome_fantasia;
+                $this->cnpj = $cnpj;
+                $this->endereco = $endereco;
+                $this->telefone = $telefone;
+                $this->responsavel = $responsavel;
+            }
         public function getId()
         {
                 return $this->id;

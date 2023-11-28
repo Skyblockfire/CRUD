@@ -22,7 +22,7 @@
         if($row){
             //verifica se a senha é igual
             if($senha == $row['Senha']){
-                $_SESSION['name'] = $row['Nome'];
+                $_SESSION['nome'] = $row['Nome'];
                 //verifica se é admin
                 if($row['admin'] == 1 ){
                     $_SESSION['tipo'] = 1;
@@ -31,7 +31,7 @@
                 }
                 return true;
             }else{
-                //Senha incorreta [Criar aviso]
+                //Senha incorreta
                 return false;
             }
         }
