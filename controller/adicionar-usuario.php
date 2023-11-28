@@ -19,7 +19,8 @@ if($db->autentica_admin($_SESSION['CPF'])){
     $user = new User($nome, $sobrenome, $senha, $cpf, $cnh, $telefone, $endereco, $carro);
     
     $db->cadastrar_usuario($user);
-    echo '<script>alert("usuario cadastrado!")';
+    echo '<script>alert("Usuario cadastrado!")';
+    echo '<script>location.href="../view/addUser.php"</script>';
 }else{
     echo '<script>alert("Erro, você não é um administrador.")';
     echo '<script>location.href="../view/home.php"</script>';
