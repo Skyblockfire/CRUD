@@ -11,7 +11,7 @@
         margin: 0;
         }
     </style>
-    <title>Adicionar Usuaio</title>
+    <title>Adicionar Usuario</title>
 </head>
 <body>
     <div class="container mt-5">
@@ -75,5 +75,13 @@
             </div>
         </div>
     </div>
+<?php
+    session_start();
+    if(isset($_SESSION["CPF"])){
+
+}else{
+    echo'<script>location.href="index.html";</script>';
+}
+?>
 </body>
 </html>

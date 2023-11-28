@@ -11,7 +11,7 @@
         margin: 0;
         }
     </style>
-    <title>Alterar Usuaio</title>
+    <title>Alterar Usuario</title>
 </head>
 <body>
     <div class="container mt-5">
@@ -70,5 +70,14 @@
             </div>
         </div>
     </div>
+        
+<?php
+    session_start();
+    if(isset($_SESSION["CPF"])){
+
+}else{
+    echo'<script>location.href="index.html";</script>';
+}
+?>
 </body>
 </html>
