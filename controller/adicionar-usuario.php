@@ -4,7 +4,7 @@ require_once("../model/database.php");
 
 $db = new Database();
 
-if($db->autentica_admin($_SESSION['CPF'])){
+if(($db->autentica_admin($_SESSION['CPF'])) && ($_SESSION['tipo'] == 1)){
     require_once("../model/user.php");
 
     $nome = $_POST["nome"];
