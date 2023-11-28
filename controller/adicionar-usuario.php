@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("../model/database.php");
-echo $_SESSION['CPF']; 
+
 $db = new Database();
 
 if($db->autentica_admin($_SESSION['CPF'])){
@@ -19,6 +19,7 @@ if($db->autentica_admin($_SESSION['CPF'])){
     $user = new User($nome, $sobrenome, $senha, $cpf, $cnh, $telefone, $endereco, $carro);
     
     $db->cadastrar_usuario($user);
+    
     echo '<script>alert("Usuario cadastrado!")';
     echo '<script>location.href="../view/addUser.php"</script>';
 }else{
