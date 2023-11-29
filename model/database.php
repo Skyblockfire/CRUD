@@ -90,7 +90,24 @@
 
         $deletar_empresa -> execute($Array);
     }
+public function viewUser(){
+    if(isset($_POST['search'])){
+        $busca = '%' . $_POST['search'] .'%';
+        $query = $this->banco->prepare('SELECT ID,concat(Nome," ",Sobrenome) Nome,CPF,CNH,Telefone,Endereco,Carro FROM usuario WHERE nome = :busca');
 
+        $query->bindParam(':busca', $busca,PDO::PARAM_STR);
+
+        $query->execute();
+        
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }else{
+        $query = $this->banco->prepare('SELECT id,concat(Nome," ",Sobrenome) Nome,CPF,CNH,Telefone,Endereco,Carro FROM usuario');
+
+        $query->execute();
+
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
 public function cadastrar_usuario($user){
     $admin = $user->getAdmin();
     $nome = $user->getNome();

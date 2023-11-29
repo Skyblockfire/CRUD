@@ -11,7 +11,7 @@
         margin: 0;
         }
     </style>
-    <title>Alterar Usuario</title>
+    <title>Adicionar Usuario</title>
 </head>
 <body>
     <div class="container mt-5">
@@ -19,12 +19,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Alterar Usuario
+                        <h4>Adicionar Usuario
                         <a href="home.php" class="btn btn-danger float-end">Voltar</a>
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="../controller/alterar-usuario.php" method="POST">
+                        <form action="../controller/adicionar-usuario.php" method="POST">
 
                             <div class="mb-3">
                                 <label>Nome</label>
@@ -32,28 +32,13 @@
                             </div>
 
                             <div class="mb-3">
-                                <label>Sobrenome</label>
-                                <input type="text" name="sobrenome" class="form-control" required>
+                                <label>Nome Fantasia</label>
+                                <input type="text" name="nome_fantasia" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label>Senha</label>
-                                <input type="password" name="senha" class="form-control" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label>CPF</label>
-                                <input type="number" name="CPF" class="form-control" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label>CNH</label>
-                                <input type="number" name="CNH" class="form-control" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label>Telefone</label>
-                                <input type="number" name="telefone" class="form-control" required>
+                                <label>CNPJ</label>
+                                <input type="number" name="CNPJ" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
@@ -62,7 +47,17 @@
                             </div>
 
                             <div class="mb-3">
-                                <button type="submit" name="add" class="btn btn-primary">Alterar</button>
+                                <label>Telefone</label>
+                                <input type="number" name="telefone" class="form-control" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label>Responsável</label>
+                                <input type="text" name="responsavel" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <button type="submit" name="add" class="btn btn-primary">Adicionar</button>
                             </div>
                         </form>
                     </div>
@@ -70,7 +65,6 @@
             </div>
         </div>
     </div>
-        
 <?php
     session_start();
     if(isset($_SESSION["CPF"])){
