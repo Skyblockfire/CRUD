@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -32,6 +35,7 @@
                                     <th>Telefone</th>
                                     <th>Endereço</th>
                                     <th>Carro</th>
+                                  <?php if($_SESSION['tipo']){echo '<th>Ações</th>';}?>
                                 </tr>
                             </thead>
                             <tbody>
@@ -39,7 +43,7 @@
                                     include("../model/user.php");
                                     include("../model/database.php");
                                     $db = new Database();
-                                    $resultado = $db->viewUser();
+                                    $resultado = $db->viewUser(1);
                                     foreach($resultado as $row){
                                         echo"<tr>
                                                 <td>{$row['id']}</td>
@@ -48,8 +52,14 @@
                                                 <td>{$row['CNH']}</td>
                                                 <td>{$row['Telefone']}</td>
                                                 <td>{$row['Endereco']}</td>
-                                                <td>{$row['Carro']}</td>
-                                            </tr>";
+                                                <td>{$row['Carro']}</td>";
+                                        if($_SESSION['tipo']){echo"<td>
+                                            <a href='altUser.php?id={$row['id']}' class='btn btn-primary btn-sm'>Editar</a>
+                                            <a href='../controller/delete-user.php?id={$row['id']}' class='btn btn-danger btn-sm'>Deletar</a>
+                                            </td>
+                                        </tr>";}else{
+                                            echo "</tr>";
+                                        };
                                     }
                                 ?>
                             </tbody>
@@ -61,9 +71,7 @@
     </div>
 </body>
 <?php
-session_start();
-
-if(isset($_SESSION["CPF"])){
+if(isset($_SESSION["CPF"]) && $_SESSION['tipo']){
 
 }else{
     echo'<script>location.href="index.html";</script>';

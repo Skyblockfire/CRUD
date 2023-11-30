@@ -90,10 +90,10 @@
 
         $deletar_empresa -> execute($Array);
     }
-public function viewUser(){
+public function viewUser($tipoBusca){
     if(isset($_POST['search'])){
         $busca = '%' . $_POST['search'] .'%';
-        $query = $this->banco->prepare('SELECT ID,concat(Nome," ",Sobrenome) Nome,CPF,CNH,Telefone,Endereco,Carro FROM usuario WHERE nome = :busca');
+        $query = $this->banco->prepare('SELECT id,Nome,Sobrenome,CPF,CNH,Telefone,Endereco,Carro FROM usuario WHERE nome = :busca or id = :busca AND id <> 1 or telefone = :busca or endereco = :busca');
 
         $query->bindParam(':busca', $busca,PDO::PARAM_STR);
 
@@ -101,12 +101,19 @@ public function viewUser(){
         
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }else{
-        $query = $this->banco->prepare('SELECT id,concat(Nome," ",Sobrenome) Nome,CPF,CNH,Telefone,Endereco,Carro FROM usuario');
+            $query = $this->banco->prepare('SELECT id,concat(Nome," ",Sobrenome) Nome,CPF,CNH,Telefone,Endereco,Carro FROM usuario WHERE id <> 1');
 
-        $query->execute();
-
-        return $query->fetchAll(PDO::FETCH_ASSOC);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+}
+public function viewUserAlt($id){
+    $query = $this->banco->prepare('SELECT id,Nome,Sobrenome,Senha,CPF,CNH,Telefone,Endereco,Carro FROM usuario WHERE id <> 1 and id = :id');
+
+    $query->bindParam(':id', $id);
+    $query->execute();
+
+    return $query->fetchAll(PDO::FETCH_ASSOC);
 }
 public function cadastrar_usuario($user){
     $admin = $user->getAdmin();
@@ -126,7 +133,7 @@ public function cadastrar_usuario($user){
     $criar_usuario->execute($Array);
 }
 
-public function alterar_usuario($user){
+public function alterar_usuario($user,$id){
     $admin = $user->getAdmin();
     $nome = $user->getNome();
     $sobrenome = $user->getSobrenome();
@@ -137,9 +144,9 @@ public function alterar_usuario($user){
     $endereco = $user->getEndereco();
     $carro = $user->getCarro();
 
-    $Array = array($admin,$nome,$sobrenome,$senha,$cpf,$cnh,$telefone,$endereco,$carro);
+    $Array = array($admin,$nome,$sobrenome,$senha,$cpf,$cnh,$telefone,$endereco,$carro,$id);
 
-    $alterar_usuario = $this->banco->prepare('UPDATE usuario(admin,nome,sobrenome,senha,cpf,cnh,telefone,endereco,carro) VALUES(?,?,?,?,?,?,?,?,?);');
+    $alterar_usuario = $this->banco->prepare('UPDATE usuario SET admin = ?, Nome = ?, Sobrenome = ?, Senha = ?, CPF = ?, CNH = ?, Telefone = ?, Endereco = ?, Carro = ? WHERE id = ?;');
 
     $alterar_usuario->execute($Array);
 }
