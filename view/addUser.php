@@ -24,7 +24,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="../controller/adicionar-usuario.php" method="POST">
+                        <form autocomplete="off" action="../controller/adicionar-usuario.php" method="POST">
 
                             <div class="mb-3">
                                 <label>Nome</label>
@@ -38,7 +38,7 @@
 
                             <div class="mb-3">
                                 <label>Senha</label>
-                                <input type="password" name="senha" class="form-control" required>
+                                <input type="text" name="senha" class="form-control" required>
                             </div>
 
                             <div class="mb-3">

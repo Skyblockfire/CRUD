@@ -49,7 +49,7 @@
 
                             <div class="mb-3">
                                 <label>Senha</label>
-                                <input type="password" name="senha" value="<?=$usuario[0]['Senha']?>" class="form-control" required>
+                                <input type="text" name="senha" value="<?=$usuario[0]['Senha']?>" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
