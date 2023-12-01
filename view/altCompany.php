@@ -32,7 +32,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="../controller/alterar-empresa.php" method="POST">
+                        <form autocomplete="off" action="../controller/alterar-empresa.php" method="POST">
 
                             <div class="mb-3">
                                 <label>Nome</label>

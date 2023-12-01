@@ -110,12 +110,12 @@
 
     }
 
-    public function deletar_empresa($cnpj){
-        $Array = array($cnpj);
+    public function deletar_empresa($id){
+        $deletar_empresa = $this->banco->prepare('DELETE FROM empresa WHERE id = :id');
 
-        $deletar_empresa = $this->banco->prepare('DELETE FROM empresa WHERE cnpj = ?');
+        $deletar_empresa->bindParam(':id', $id);
 
-        $deletar_empresa -> execute($Array);
+        $deletar_empresa -> execute();
     }
 public function viewUser($tipoBusca){
     if(isset($_POST['search'])){

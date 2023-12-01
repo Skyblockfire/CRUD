@@ -54,7 +54,7 @@ session_start();
                                                 <td>{$row['Responsavel']}</td>";
                                         if($_SESSION['tipo']){echo"<td>
                                             <a href='altCompany.php?id={$row['id']}' class='btn btn-primary btn-sm'>Editar</a>
-                                            <a href='../controller/delete-empresa.php?id={$row['id']}' class='btn btn-danger btn-sm'>Deletar</a>
+                                            <a href='../controller/deletar-empresa.php?id={$row['id']}' class='btn btn-danger btn-sm'>Deletar</a>
                                             </td>
                                         </tr>";}else{
                                             echo "</tr>";
