@@ -20,7 +20,7 @@
 
         $db = new Database();
         
-        $empresa = $db->viewCompanyAlt($_GET['id']);
+        $empresa = $db->viewCompanyAlt($_GET['id_empresa']);
     ?>
     <div class="container mt-5">
         <div class="row">
@@ -33,6 +33,8 @@
                     </div>
                     <div class="card-body">
                         <form autocomplete="off" action="../controller/alterar-empresa.php" method="POST">
+
+                            <input type="hidden" name="id_empresa" value="<?=$empresa[0]['id_empresa']?>" class="form-control">
 
                             <div class="mb-3">
                                 <label>Nome</label>
@@ -75,9 +77,10 @@
     </div>
 <?php
     session_start();
-    if(isset($_SESSION["CPF"])){
+    if(isset($_SESSION['CPF'])){
 
 }else{
+    echo'<script>alert("deu ruim!");</script>';
     echo'<script>location.href="index.html";</script>';
 }
 ?>

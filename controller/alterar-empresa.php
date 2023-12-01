@@ -7,6 +7,7 @@ $db = new Database();
 
 if(($db->autentica_admin($_SESSION['CPF'])) && ($_SESSION['tipo'] == 1)){
     require_once("../model/company.php");
+
     $nome = $_POST["nome"];
     $nome_fantasia = $_POST["nome_fantasia"];
     $cnpj = $_POST["CNPJ"];
@@ -16,7 +17,7 @@ if(($db->autentica_admin($_SESSION['CPF'])) && ($_SESSION['tipo'] == 1)){
     
     $company = new Empresa($nome, $nome_fantasia, $cnpj, $endereco, $telefone, $responsavel);
     
-    $db->alterar_empresa($company);
+    $db->alterar_empresa($company,$_POST['id_empresa']);
     
     echo '<script>alert("Empresa alterada!")</script>';
     echo '<script>location.href="../view/addCompany.php"</script>';

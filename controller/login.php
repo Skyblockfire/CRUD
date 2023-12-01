@@ -10,7 +10,7 @@
     exit();
     }else{
         $db = new Database();
-        if($db->verificar_login($CPF, $Senha)){
+        if($db->verificar_login($CPF,$Senha)){
             $_SESSION['CPF'] = $CPF;
             echo '<script>location.href="../view/home.php"</script>';
         }else{

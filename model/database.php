@@ -56,7 +56,7 @@
     public function viewCompany($tipoBusca){
         if(isset($_POST['search'])){
             $busca = '%' . $_POST['search'] .'%';
-            $query = $this->banco->prepare('SELECT id,Nome,Nome_Fantasia,CNPJ,Endereco,Telefone,Responsavel FROM empresa WHERE nome = :busca or id = :busca AND id <> 1 or telefone = :busca or endereco = :busca');
+            $query = $this->banco->prepare('SELECT id_empresa,Nome,Nome_Fantasia,CNPJ,Endereco,Telefone,Responsavel FROM empresa WHERE nome = :busca or id_empresa = :busca or telefone = :busca or endereco = :busca');
     
             $query->bindParam(':busca', $busca,PDO::PARAM_STR);
     
@@ -64,14 +64,14 @@
             
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }else{
-                $query = $this->banco->prepare('SELECT id,Nome,Nome_Fantasia,CNPJ,Endereco,Telefone,Responsavel FROM empresa');
+                $query = $this->banco->prepare('SELECT id_empresa,Nome,Nome_Fantasia,CNPJ,Endereco,Telefone,Responsavel FROM empresa');
     
                 $query->execute();
                 return $query->fetchAll(PDO::FETCH_ASSOC);
         }
     }
     public function viewCompanyAlt($id){
-        $query = $this->banco->prepare('SELECT id,Nome,Nome_Fantasia,CNPJ,Endereco,Telefone,Responsavel FROM empresa WHERE id = :id');
+        $query = $this->banco->prepare('SELECT id_empresa,Nome,Nome_Fantasia,CNPJ,Endereco,Telefone,Responsavel FROM empresa WHERE id_empresa = :id');
 
         $query->bindParam(':id', $id);
         $query->execute();
@@ -94,7 +94,7 @@
         $cadastrar_empresa->execute($Array);
     }
 
-    public function alterar_empresa($company){
+    public function alterar_empresa($company,$id){
         $nome = $company->getNome();
         $nome_fantasia = $company->getNomeFantasia();
         $cnpj = $company->getCnpj();
@@ -102,16 +102,16 @@
         $telefone = $company->getTelefone();
         $responsavel = $company->getResponsavel();
 
-        $Array = array($nome,$nome_fantasia,$cnpj,$endereco,$telefone,$responsavel);
+        $Array = array($nome,$nome_fantasia,$cnpj,$endereco,$telefone,$responsavel,$id);
 
-        $alterar_empresa = $this->banco->prepare('UPDATE empresa SET Nome = ?, Nome_Fantasia = ?, CNPJ = ?, Endereco = ?, Telefone = ?, Responsavel = ?');
+        $alterar_empresa = $this->banco->prepare('UPDATE empresa SET Nome = ?, Nome_Fantasia = ?, CNPJ = ?, Endereco = ?, Telefone = ?, Responsavel = ? where id_empresa = ?');
 
         $alterar_empresa->execute($Array);
 
     }
 
     public function deletar_empresa($id){
-        $deletar_empresa = $this->banco->prepare('DELETE FROM empresa WHERE id = :id');
+        $deletar_empresa = $this->banco->prepare('DELETE FROM empresa WHERE id_empresa = :id');
 
         $deletar_empresa->bindParam(':id', $id);
 

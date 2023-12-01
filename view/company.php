@@ -45,7 +45,7 @@ session_start();
                                     $resultado = $db->viewCompany(1);
                                     foreach($resultado as $row){
                                         echo"<tr>
-                                                <td>{$row['id']}</td>
+                                                <td>{$row['id_empresa']}</td>
                                                 <td>{$row['Nome_Fantasia']}</td>
                                                 <td>{$row['Nome']}</td>
                                                 <td>{$row['CNPJ']}</td>
@@ -53,8 +53,8 @@ session_start();
                                                 <td>{$row['Telefone']}</td>
                                                 <td>{$row['Responsavel']}</td>";
                                         if($_SESSION['tipo']){echo"<td>
-                                            <a href='altCompany.php?id={$row['id']}' class='btn btn-primary btn-sm'>Editar</a>
-                                            <a href='../controller/deletar-empresa.php?id={$row['id']}' class='btn btn-danger btn-sm'>Deletar</a>
+                                            <a href='altCompany.php?id_empresa={$row['id_empresa']}' class='btn btn-primary btn-sm'>Editar</a>
+                                            <a href='../controller/deletar-empresa.php?id_empresa={$row['id_empresa']}' class='btn btn-danger btn-sm'>Deletar</a>
                                             </td>
                                         </tr>";}else{
                                             echo "</tr>";
