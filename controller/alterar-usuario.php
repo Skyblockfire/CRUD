@@ -21,7 +21,7 @@ if(($db->autentica_admin($_SESSION['CPF'])) && ($_SESSION['tipo'] == 1)){
     $db->alterar_usuario($user,$_POST['id']);
 
     echo '<script>alert("Usuario atualizado!")</script>';
-    echo '<script>location.href="../view/addUser.php"</script>';
+    echo '<script>location.href="../view/user.php"</script>';
 }else{
     echo '<script>alert("Erro, você não é um administrador.")</script>';
     echo '<script>location.href="../view/home.php"</script>';

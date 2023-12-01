@@ -7,7 +7,6 @@ $db = new Database();
 
 if(($db->autentica_admin($_SESSION['CPF'])) && ($_SESSION['tipo'] == 1)){
     require_once("../model/company.php");
-    echo $_POST['nome'];
     $nome = $_POST["nome"];
     $nome_fantasia = $_POST["nome_fantasia"];
     $cnpj = $_POST["CNPJ"];
@@ -19,10 +18,10 @@ if(($db->autentica_admin($_SESSION['CPF'])) && ($_SESSION['tipo'] == 1)){
     
     $db->cadastrar_empresa($company);
     
-    echo '<script>alert("Empresa cadastrada!")';
+    echo '<script>alert("Empresa cadastrada!")</script>';
     echo '<script>location.href="../view/addCompany.php"</script>';
 }else{
-    echo '<script>alert("Erro, você não é um administrador.")';
+    echo '<script>alert("Erro, você não é um administrador.")</script>';
     echo '<script>location.href="../view/home.php"</script>';
 }
 

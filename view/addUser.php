@@ -20,7 +20,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>Adicionar Usuario
-                        <a href="home.php" class="btn btn-danger float-end">Voltar</a>
+                        <a href="user.php" class="btn btn-danger float-end">Voltar</a>
                         </h4>
                     </div>
                     <div class="card-body">

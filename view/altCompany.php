@@ -14,46 +14,54 @@
     <title>Adicionar Empresa</title>
 </head>
 <body>
+<?php 
+        include("../model/user.php");
+        include("../model/database.php");
+
+        $db = new Database();
+        
+        $empresa = $db->viewCompanyAlt($_GET['id']);
+    ?>
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Adicionar Empresa
+                        <h4>Alterar Empresa
                         <a href="company.php" class="btn btn-danger float-end">Voltar</a>
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="../controller/adicionar-empresa.php" method="POST">
+                        <form action="../controller/alterar-empresa.php" method="POST">
 
                             <div class="mb-3">
                                 <label>Nome</label>
-                                <input type="text" name="nome" class="form-control" required>
+                                <input type="text" name="nome" value="<?=$empresa[0]['Nome']?>"class="form-control" required>
                             </div>
 
                             <div class="mb-3">
                                 <label>Nome Fantasia</label>
-                                <input type="text" name="nome_fantasia" class="form-control" required>
+                                <input type="text" name="nome_fantasia" value="<?=$empresa[0]['Nome_Fantasia']?>" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
                                 <label>CNPJ</label>
-                                <input type="number" name="CNPJ" class="form-control" required>
+                                <input type="number" name="CNPJ" value="<?=$empresa[0]['CNPJ']?>" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
                                 <label>Endereço</label>
-                                <input type="text" name="endereco" class="form-control" required>
+                                <input type="text" name="endereco" value="<?=$empresa[0]['Endereco']?>" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
                                 <label>Telefone</label>
-                                <input type="number" name="telefone" class="form-control" required>
+                                <input type="number" name="telefone" value="<?=$empresa[0]['Telefone']?>" class="form-control" required>
                             </div>
                             
                             <div class="mb-3">
                                 <label>Responsável</label>
-                                <input type="text" name="responsavel" class="form-control" required>
+                                <input type="text" name="responsavel" value="<?=$empresa[0]['Responsavel']?>" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
