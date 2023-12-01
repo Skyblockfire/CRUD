@@ -11,7 +11,7 @@
         margin: 0;
         }
     </style>
-    <title>Adicionar Usuario</title>
+    <title>Adicionar Empresa</title>
 </head>
 <body>
     <div class="container mt-5">
@@ -19,12 +19,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Adicionar Usuario
-                        <a href="home.php" class="btn btn-danger float-end">Voltar</a>
+                        <h4>Adicionar Empresa
+                        <a href="company.php" class="btn btn-danger float-end">Voltar</a>
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="../controller/adicionar-usuario.php" method="POST">
+                        <form action="../controller/adicionar-empresa.php" method="POST">
 
                             <div class="mb-3">
                                 <label>Nome</label>
