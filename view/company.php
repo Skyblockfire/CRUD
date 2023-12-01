@@ -21,7 +21,7 @@ session_start();
                 <div class="card">
                     <div class="card-header">
                         <h4>Detalhes das empresas
-                            <a href="addCompany.php" class="btn btn-success float-end ">Cadastrar Empresa</a>
+                           <?php if($_SESSION['tipo']) echo '<a href="addCompany.php" class="btn btn-success float-end ">Cadastrar Empresa</a>'?>
                         </h4>
                     </div>
                     <div class="card-body">
