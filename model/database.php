@@ -104,9 +104,10 @@
 
         $Array = array($nome,$nome_fantasia,$cnpj,$endereco,$telefone,$responsavel);
 
-        $alterar_empresa = $this->banco->prepare('UPDATE empresa SET VALUES(?,?,?,?,?,?)');
+        $alterar_empresa = $this->banco->prepare('UPDATE empresa SET Nome = ?, Nome_Fantasia = ?, CNPJ = ?, Endereco = ?, Telefone = ?, Responsavel = ?');
 
         $alterar_empresa->execute($Array);
+
     }
 
     public function deletar_empresa($cnpj){
