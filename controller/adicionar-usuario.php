@@ -1,4 +1,5 @@
 <?php
+//Ler o comentário no adicionar-empresa.php
 session_start();
 require_once("../model/database.php");
 

@@ -9,6 +9,6 @@ if(isset($_SESSION["CPF"])){
 }
 ?>
 <title>Homepage</title>
-<a href="addUser.php">Cadastrar user</a>
-<a href="altUser.php">Alterar user</a>
+<a href="user.php">Usuários</a>
+<a href="company.php">Empresas</a>
 <a href="../controller/logout.php">Logout</a>

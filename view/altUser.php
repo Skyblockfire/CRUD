@@ -78,7 +78,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <button type="submit" name="alt" class="btn btn-primary">Alterar</button>
+                                <button type="submit" name="alt" class="btn btn-primary">Salvar</button>
                             </div>
                         </form>
                     </div>
