@@ -53,6 +53,32 @@
         }
     }
 
+    public function viewCompany($tipoBusca){
+        if(isset($_POST['search'])){
+            $busca = '%' . $_POST['search'] .'%';
+            $query = $this->banco->prepare('SELECT id,Nome,Nome_Fantasia,CNPJ,Endereco,Telefone,Responsavel FROM empresa WHERE nome = :busca or id = :busca AND id <> 1 or telefone = :busca or endereco = :busca');
+    
+            $query->bindParam(':busca', $busca,PDO::PARAM_STR);
+    
+            $query->execute();
+            
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }else{
+                $query = $this->banco->prepare('SELECT id,Nome,Nome_Fantasia,CNPJ,Endereco,Telefone,Responsavel FROM empresa');
+    
+                $query->execute();
+                return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
+    }
+    public function viewCompanyAlt($id){
+        $query = $this->banco->prepare('SELECT id,Nome,Nome_Fantasia,CNPJ,Endereco,Telefone,Responsavel FROM empresa WHERE id = :id');
+
+        $query->bindParam(':id', $id);
+        $query->execute();
+    
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+        
+    }
     public function cadastrar_empresa($company){
         $nome = $company->getNome();
         $nome_fantasia = $company->getNomeFantasia();
@@ -61,7 +87,7 @@
         $telefone = $company->getTelefone();
         $responsavel = $company->getResponsavel();
 
-        $cadastrar_empresa = $this->banco->prepare('INSERT INTO company (nome,nome_fantasia,cnpj,endereco,telefone,responsavel) VALUES (?,?,?,?,?,?)');
+        $cadastrar_empresa = $this->banco->prepare('INSERT INTO empresa (nome,nome_fantasia,cnpj,endereco,telefone,responsavel) VALUES (?,?,?,?,?,?)');
         
         $Array = array($nome,$nome_fantasia,$cnpj,$endereco,$telefone,$responsavel);
 
@@ -78,7 +104,7 @@
 
         $Array = array($nome,$nome_fantasia,$cnpj,$endereco,$telefone,$responsavel);
 
-        $alterar_empresa = $this->banco->prepare('UPDATE company SET VALUES(?,?,?,?,?,?)');
+        $alterar_empresa = $this->banco->prepare('UPDATE empresa SET VALUES(?,?,?,?,?,?)');
 
         $alterar_empresa->execute($Array);
     }
@@ -86,7 +112,7 @@
     public function deletar_empresa($cnpj){
         $Array = array($cnpj);
 
-        $deletar_empresa = $this->banco->prepare('DELETE FROM company WHERE cnpj = ?');
+        $deletar_empresa = $this->banco->prepare('DELETE FROM empresa WHERE cnpj = ?');
 
         $deletar_empresa -> execute($Array);
     }
@@ -151,12 +177,14 @@ public function alterar_usuario($user,$id){
     $alterar_usuario->execute($Array);
 }
 
-public function deletar_usuario($cpf){
-    $Array = array($cpf);
+public function deletar_usuario($id){
+    $Array = array($id);
 
-    $deletar_usuario = $this->banco->prepare('DELETE FROM usuario WHERE CPF = ?;');
+    $deletar_usuario = $this->banco->prepare('DELETE FROM usuario WHERE id = ?;');
 
     $deletar_usuario->execute($Array);
+
+    return true;
 }
 }
 ?>
