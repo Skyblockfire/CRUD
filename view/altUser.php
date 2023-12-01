@@ -33,7 +33,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="../controller/alterar-usuario.php" method="POST">
+                        <form autocomplete="off" action="../controller/alterar-usuario.php" method="POST">
                         
                                 <input type="hidden" name="id" value="<?=$usuario[0]['id']?>" class="form-control">
 
