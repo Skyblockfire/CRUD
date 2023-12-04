@@ -24,7 +24,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="../controller/adicionar-empresa.php" method="POST">
+                        <form autocomplete="off" action="../controller/adicionar-empresa.php" method="POST">
 
                             <div class="mb-3">
                                 <label>Nome</label>

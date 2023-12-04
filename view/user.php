@@ -55,7 +55,7 @@ session_start();
                                                 <td>{$row['Carro']}</td>";
                                         if($_SESSION['tipo']){echo"<td>
                                             <a href='altUser.php?id={$row['id']}' class='btn btn-primary btn-sm'>Editar</a>
-                                            <a href='../controller/deletar-user.php?id={$row['id']}' class='btn btn-danger btn-sm'>Deletar</a>
+                                            <a href='../controller/deletar-usuario.php?id={$row['id']}' class='btn btn-danger btn-sm'>Deletar</a>
                                             </td>
                                         </tr>";}else{
                                             echo "</tr>";
