@@ -65,7 +65,22 @@
                                 <label>Carro</label>
                                 <input type="text" name="carro" class="form-control" required>
                             </div>
+                            <div class="mb-3">
+                                <label>Empresa</label>
+                            <select name="empresa" class="form-control">
+                                <?php 
+                                include("../model/database.php");
+                                $db = new Database();
 
+                                $resultado = $db->viewUserCompany();
+
+                                foreach($resultado as $row){
+                                    print "<option value='". $row['id_empresa']."'>";
+                                    print $row['Nome']."</option>";
+                                }
+                                ?>
+                            </select>
+                            </div>
                             <div class="mb-3">
                                 <button type="submit" name="add" class="btn btn-primary">Adicionar</button>
                             </div>

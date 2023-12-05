@@ -52,7 +52,14 @@
             }
         }
     }
+    //Criado essa função abaixo, caso necessário deletar.
+    public function viewUserCompany(){
+        $query = $this->banco->prepare('SELECT id_empresa,Nome FROM empresa');
 
+        $query->execute();
+
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function viewCompany($tipoBusca){
         if(isset($_POST['search'])){
             $busca = '%' . $_POST['search'] .'%';
