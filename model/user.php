@@ -10,7 +10,8 @@
         public $telefone;
         public $endereco;
         public $carro;
-        public function __construct($nome, $sobrenome, $senha, $cpf, $cnh, $telefone, $endereco, $carro){
+        public $empresa;
+        public function __construct($nome, $sobrenome, $senha, $cpf, $cnh, $telefone, $endereco, $carro, $empresa){
                 $this->admin = 0;
                 $this->nome = $nome;
                 $this->sobrenome = $sobrenome;
@@ -20,6 +21,7 @@
                 $this->telefone = $telefone;
                 $this->endereco = $endereco;
                 $this->carro = $carro;
+                $this->empresa = $empresa;
             }
         public function getCarro()
         {
@@ -135,6 +137,18 @@
         public function setId($id)
         {
                 $this->id = $id;
+
+                return $this;
+        }
+
+        public function getEmpresa()
+        {
+                return $this->empresa;
+        }
+
+        public function setEmpresa($empresa)
+        {
+                $this->empresa = $empresa;
 
                 return $this;
         }

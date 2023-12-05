@@ -35,8 +35,9 @@ if(($db->autentica_admin($_SESSION['CPF'])) && ($_SESSION['tipo'] == 1)){
     $telefone = $_POST["telefone"];
     $endereco = $_POST["endereco"];
     $carro = $_POST["carro"];
+    $empresa = $_POST["empresa"];
     
-    $user = new User($nome, $sobrenome, $senha, $cpf, $cnh, $telefone, $endereco, $carro);
+    $user = new User($nome, $sobrenome, $senha, $cpf, $cnh, $telefone, $endereco, $carro, $empresa);
     
     $db->cadastrar_usuario($user);
     

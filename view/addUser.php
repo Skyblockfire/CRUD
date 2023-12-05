@@ -75,8 +75,8 @@
                                 $resultado = $db->viewUserCompany();
 
                                 foreach($resultado as $row){
-                                    print "<option value='". $row['id_empresa']."'>";
-                                    print $row['Nome']."</option>";
+                                    echo "<option value='". $row['id_empresa']."'>";
+                                    echo $row['Nome']."</option>";
                                 }
                                 ?>
                             </select>

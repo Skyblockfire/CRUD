@@ -52,7 +52,6 @@
             }
         }
     }
-    //Criado essa função abaixo, caso necessário deletar.
     public function viewUserCompany(){
         $query = $this->banco->prepare('SELECT id_empresa,Nome FROM empresa');
 
@@ -159,12 +158,15 @@ public function cadastrar_usuario($user){
     $telefone = $user->getTelefone();
     $endereco = $user->getEndereco();
     $carro = $user->getCarro();
+    $empresa = $user->getEmpresa();
 
-    $Array = array($admin,$nome,$sobrenome,$senha,$cpf,$cnh,$telefone,$endereco,$carro);
+    $Array = array($admin,$nome,$sobrenome,$senha,$cpf,$cnh,$telefone,$endereco,$carro,$empresa);
 
-    $criar_usuario = $this->banco->prepare('INSERT INTO usuario(admin,nome,sobrenome,senha,cpf,cnh,telefone,endereco,carro) VALUES(?,?,?,?,?,?,?,?,?);');
-
-    $criar_usuario->execute($Array);
+    $criar_usuario = $this->banco->prepare('INSERT INTO usuario(admin,nome,sobrenome,senha,cpf,cnh,telefone,endereco,carro,id_empresa) VALUES(?,?,?,?,?,?,?,?,?,?);');
+    if(empty($empresa)){
+        echo 'deu ruim';
+    }else{
+    $criar_usuario->execute($Array);}
 }
 
 public function alterar_usuario($user,$id){
