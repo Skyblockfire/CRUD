@@ -59,6 +59,15 @@
 
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function viewAltUserCompany($id){
+        $query = $this->banco->prepare('SELECT id_empresa,Nome FROM empresa WHERE id_empresa = :id');
+
+        $query->bindParam(':id', $id);
+        
+        $query->execute();
+
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function viewCompany($tipoBusca){
         if(isset($_POST['search'])){
             $busca = '%' . $_POST['search'] .'%';
@@ -140,8 +149,15 @@ public function viewUser($tipoBusca){
             return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 }
+
+public function joinUser(){
+    $query = $this->banco->prepare('SELECT id,concat(u.Nome," ",Sobrenome) Nome,CPF,CNH,u.Telefone,u.Endereco,Carro,e.Nome Empresa FROM usuario u left join empresa e on u.id_empresa = e.id_empresa where id <> 1');
+
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+}
 public function viewUserAlt($id){
-    $query = $this->banco->prepare('SELECT id,Nome,Sobrenome,Senha,CPF,CNH,Telefone,Endereco,Carro FROM usuario WHERE id <> 1 and id = :id');
+    $query = $this->banco->prepare('SELECT * FROM usuario WHERE id <> 1 and id = :id');
 
     $query->bindParam(':id', $id);
     $query->execute();

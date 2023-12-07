@@ -35,6 +35,7 @@ session_start();
                                     <th>Telefone</th>
                                     <th>Endereço</th>
                                     <th>Carro</th>
+                                    <th>Empresa</th>
                                   <?php if($_SESSION['tipo']){echo '<th>Ações</th>';}?>
                                 </tr>
                             </thead>
@@ -43,7 +44,7 @@ session_start();
                                     include("../model/user.php");
                                     include("../model/database.php");
                                     $db = new Database();
-                                    $resultado = $db->viewUser(1);
+                                    $resultado = $db->joinUser();
                                     foreach($resultado as $row){
                                         echo"<tr>
                                                 <td>{$row['id']}</td>
@@ -52,7 +53,8 @@ session_start();
                                                 <td>{$row['CNH']}</td>
                                                 <td>{$row['Telefone']}</td>
                                                 <td>{$row['Endereco']}</td>
-                                                <td>{$row['Carro']}</td>";
+                                                <td>{$row['Carro']}</td>
+                                                <td>{$row['Empresa']}</td>";
                                         if($_SESSION['tipo']){echo"<td>
                                             <a href='altUser.php?id={$row['id']}' class='btn btn-primary btn-sm'>Editar</a>
                                             <a href='../controller/deletar-usuario.php?id={$row['id']}' class='btn btn-danger btn-sm'>Deletar</a>

@@ -22,14 +22,15 @@
         $db = new Database();
         
         $usuario = $db->viewUserAlt($_GET['id']);
-    ?>
+        $empresa = $db->viewAltUserCompany($usuario[0]['id_empresa']);
+        ?>
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <h4>Alterar Usuario
-                        <a href="Users.php" class="btn btn-danger float-end">Voltar</a>
+                        <a href="user.php" class="btn btn-danger float-end">Voltar</a>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -78,6 +79,15 @@
                             </div>
 
                             <div class="mb-3">
+                                <label>Empresa</label>
+                            <select name="empresa" class="form-control" disabled>
+                                <?php   
+                                    echo "<option value='". $empresa[0]['id_empresa']."'>";
+                                    echo $empresa[0]['Nome']."</option>";
+                                ?>
+                            </select>
+                            </div>
+                            <div class="mb-3">
                                 <button type="submit" name="alt" class="btn btn-primary">Salvar</button>
                             </div>
                         </form>
@@ -87,7 +97,7 @@
         </div>
     </div>
         
-<?php
+    <?php
     session_start();
     if((isset($_SESSION["CPF"]) && $_SESSION['tipo']) || ($_GET['id'] != 1)){
 
