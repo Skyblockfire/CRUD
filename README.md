@@ -18,7 +18,7 @@ Este projeto tem o intuito de ser feito um CRUD em PHP com o paradigma de orient
 
 <h2>Sem o Git</h2>
 3. Baixe os arquivos do projeto <a href="https://github.com/Skyblockfire/CRUD">aqui</a> como Zip.<br>
-4. Abra a pasta "htdocs" do Xampp e extraia <strong>todos<strong> os arquivos do projeto dentro dela.
+4. Abra a pasta "htdocs" do Xampp e extraia <strong>todos</strong> os arquivos do projeto dentro dela.
 
 <h1>Utilização</h1>
 Com todos os arquivos instalados e com o Xampp instalado podemos prosseguir para a utilização.<br>
