@@ -12,7 +12,7 @@ if(($db->autentica_admin($_SESSION['CPF'])) && ($_SESSION['tipo'] == 1)){
     $db->deletar_usuario($id);
 
     echo '<script>alert("Usuario deletado!")</script>';
-    echo '<script>location.href="../view/Users.php"</script>';
+    echo '<script>location.href="../view/User.php"</script>';
 }else{
     echo '<script>alert("Erro, você não é um administrador.")</script>';
     echo '<script>location.href="../view/home.php"</script>';
