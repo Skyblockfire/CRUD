@@ -11,10 +11,36 @@ session_start();
     #marge{
         margin-top: 20px;
     }
+
+    body{
+        background-image: url(imagens/conexoes.jpg);
+        background-size: cover;
+    }
     </style>
     <title></title>
 </head>
 <body>
+    <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="user-select: none;color:white;font-weight:900;"><?php if($_SESSION['tipo']){echo 'Admin';} else {echo 'Usuario';} ?></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" style="color:white;" aria-current="page" href="user.php">Usuários</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" style="color:white;" href="company.php">Empresas</a>
+        </li>
+      </ul>
+    </div>
+    <a class="nav-link active" aria-current="page" style="color:white;"href="../controller/logout.php">Logout</a>
+  </div>
+</nav>
+<!-- INÍCIO SITE -->
     <div class="container" id="marge">
         <div class="row">
             <div class="col-md-12">

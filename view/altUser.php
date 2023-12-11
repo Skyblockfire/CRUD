@@ -11,6 +11,10 @@
         -webkit-appearance: none;
         margin: 0;
         }
+        body{
+            background-image: url(imagens/hexagono.jpg);
+            background-size: cover;
+        }
     </style>
     <title>Alterar Usuario</title>
 </head>

@@ -12,7 +12,7 @@
         $db = new Database();
         if($db->verificar_login($CPF,$Senha)){
             $_SESSION['CPF'] = $CPF;
-            echo '<script>location.href="../view/home.php"</script>';
+            echo '<script>location.href="../view/company.php"</script>';
         }else{
            echo '<script>alert("Login Inválido")</script>';
            echo '<script>location.href="../view/index.html"</script>';
