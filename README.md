@@ -4,7 +4,7 @@ Este projeto tem o intuito de ser feito um CRUD em PHP com o paradigma de orient
 <h1>Requisitos para a utilização</h1>
 1. Xampp (OBS:É necessário utilizar o Xampp pois possui a linguagem PHP, o Apache e o MySQL já instalados.)<br>
 <a href="https://www.apachefriends.org/pt_br/index.html">Xampp</a><br>
-2. Git (Opcional) <a href="https://git-scm.com/downloads">Git</a>
+2. Git (Opcional)<br> <a href="https://git-scm.com/downloads">Git</a>
 
 # Passo a passo
 
