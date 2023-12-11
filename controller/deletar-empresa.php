@@ -6,7 +6,7 @@ $db = new Database();
 
 if(($db->autentica_admin($_SESSION['CPF'])) && ($_SESSION['tipo'] == 1)){
 
-    $id = $_GET['id'];
+    $id = $_GET['id_empresa'];
     
     $db->deletar_empresa($id);
 
