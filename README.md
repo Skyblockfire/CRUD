@@ -2,9 +2,8 @@
 Este projeto tem o intuito de ser feito um CRUD em PHP com o paradigma de orientação a objetos.
 
 <h1>Requisitos para a utilização</h1>
-1. Xampp (OBS:É necessário utilizar o Xampp pois possui a linguagem PHP, o Apache e o MySQL já instalados.)<br>
-<a href="https://www.apachefriends.org/pt_br/index.html">Xampp</a><br>
-2. Git (Opcional)<br> <a href="https://git-scm.com/downloads">Git</a>
+1. <a href="https://www.apachefriends.org/pt_br/index.html">Xampp</a> (OBS:É necessário utilizar o Xampp pois possui a linguagem PHP, o Apache e o MySQL já instalados.)<br>
+2. <a href="https://git-scm.com/downloads">Git</a> (Opcional)
 
 # Passo a passo
 
@@ -19,7 +18,7 @@ Este projeto tem o intuito de ser feito um CRUD em PHP com o paradigma de orient
 
 <h2>Sem o Git</h2>
 3. Baixe os arquivos do projeto <a href="https://github.com/Skyblockfire/CRUD">aqui</a> como Zip.<br>
-4. Abra a pasta "htdocs" do Xamopp e extraia <strong>todos<strong> os arquivos do projeto dentro dela.
+4. Abra a pasta "htdocs" do Xampp e extraia <strong>todos<strong> os arquivos do projeto dentro dela.
 
 <h1>Utilização</h1>
 Com todos os arquivos instalados e com o Xampp instalado podemos prosseguir para a utilização.<br>
