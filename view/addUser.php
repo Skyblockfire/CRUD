@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <script src="../Jquery/jquery-3.7.1.min.js"></script>
+    <script src="../Jquery/jquery.maskedinput.min.js"></script>
     <style>
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
@@ -32,46 +34,46 @@
                         <form autocomplete="off" action="../controller/adicionar-usuario.php" method="POST">
 
                             <div class="mb-3">
-                                <label>Nome</label>
+                                <label style="user-select: none;">Nome</label>
                                 <input type="text" name="nome" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label>Sobrenome</label>
+                                <label style="user-select: none;">Sobrenome</label>
                                 <input type="text" name="sobrenome" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label>Senha</label>
+                                <label style="user-select: none;">Senha</label>
                                 <input type="text" name="senha" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label>CPF</label>
-                                <input type="number" name="CPF" class="form-control" required>
+                                <label style="user-select: none;">CPF</label>
+                                <input type="text" id="CPF" name="CPF" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label>CNH</label>
+                                <label style="user-select: none;">CNH</label>
                                 <input type="number" name="CNH" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label>Telefone</label>
+                                <label style="user-select: none;">Telefone</label>
                                 <input type="number" name="telefone" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label>Endereço</label>
+                                <label style="user-select: none;">Endereço</label>
                                 <input type="text" name="endereco" class="form-control" required>
                             </div>
                             
                             <div class="mb-3">
-                                <label>Carro</label>
+                                <label style="user-select: none;">Carro</label>
                                 <input type="text" name="carro" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <label>Empresa</label>
+                                <label style="user-select: none;">Empresa</label>
                             <select name="empresa" class="form-control">
                                 <?php 
                                 include("../model/database.php");
@@ -103,5 +105,8 @@
     echo'<script>location.href="index.html";</script>';
 }
 ?>
+    <script>
+        $("#CPF").mask("999.999.999-99");
+    </script>
 </body>
 </html>

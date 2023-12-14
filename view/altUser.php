@@ -1,10 +1,13 @@
 <!--Lembrar que fiz cagada, na teoria o usuário comun não tem acesso a essa página -->
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <script src="../Jquery/jquery-3.7.1.min.js"></script>
+    <script src="../Jquery/jquery.maskedinput.min.js"></script>
     <style>
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
@@ -43,47 +46,47 @@
                                 <input type="hidden" name="id" value="<?=$usuario[0]['id']?>" class="form-control">
 
                             <div class="mb-3">
-                                <label>Nome</label>
+                                <label style="user-select: none;">Nome</label>
                                 <input type="text" name="nome" value="<?=$usuario[0]['Nome']?>" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label>Sobrenome</label>
+                                <label style="user-select: none;">Sobrenome</label>
                                 <input type="text" name="sobrenome" value="<?=$usuario[0]['Sobrenome']?>" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label>Senha</label>
+                                <label style="user-select: none;">Senha</label>
                                 <input type="text" name="senha" value="<?=$usuario[0]['Senha']?>" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label>CPF</label>
-                                <input type="number" name="CPF" value="<?=$usuario[0]['CPF']?>" class="form-control" required>
+                                <label style="user-select: none;">CPF</label>
+                                <input type="text" name="CPF" value="<?=$usuario[0]['CPF']?>" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label>CNH</label>
+                                <label style="user-select: none;">CNH</label>
                                 <input type="number" name="CNH" value="<?=$usuario[0]['CNH']?>" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label>Telefone</label>
+                                <label style="user-select: none;">Telefone</label>
                                 <input type="number" name="telefone" value="<?=$usuario[0]['Telefone']?>" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label>Endereço</label>
+                                <label style="user-select: none;">Endereço</label>
                                 <input type="text" name="endereco" value="<?=$usuario[0]['Endereco']?>" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label>Carro</label>
+                                <label style="user-select: none;">Carro</label>
                                 <input type="text" name="carro" value="<?=$usuario[0]['Carro']?>" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label>Empresa</label>
+                                <label style="user-select: none;">Empresa</label>
                             <select name="empresa" class="form-control" disabled>
                                 <?php   
                                     echo "<option value='". $empresa[0]['id_empresa']."'>";
@@ -100,14 +103,15 @@
             </div>
         </div>
     </div>
-        
-    <?php
-    session_start();
-    if((isset($_SESSION["CPF"]) && $_SESSION['tipo']) || ($_GET['id'] != 1)){
+<?php 
+//Verificação
+    if((isset($_SESSION['CPF']) && ($_SESSION['tipo'])) || ($_GET['id'] != 1)){
 
 }else{
     echo'<script>location.href="index.html";</script>';
-}
-?>
+}?>
+    <script>
+        $("#CPF").mask("999.999.999-99");
+    </script>
 </body>
 </html>

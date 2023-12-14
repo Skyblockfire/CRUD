@@ -2,7 +2,7 @@
     define('HOST', 'localhost');
     define('USER', 'root');
     define('PASSWORD', '');
-    define('DB_NAME','overdrive');
+    define('DB_NAME','jquery');
 
     require_once("company.php");
     require_once("user.php");
@@ -12,7 +12,7 @@
         $this->banco = new PDO('mysql:host='.HOST.'; dbname='.DB_NAME,USER,PASSWORD);
     }
     public function verificar_login($cpf,$senha){
-        $query = $this->banco->prepare('SELECT * FROM usuario WHERE CPF = :cpf AND Senha = :senha');
+        $query = $this->banco->prepare("SELECT * FROM usuario WHERE CPF = '' :cpf '' AND Senha = :senha");
         //previne o SQLi [Graças a deus]
         $query->bindParam(':cpf', $cpf);
         $query->bindParam(':senha', $senha);
