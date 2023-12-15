@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <script src="../Jquery/jquery-3.7.1.min.js"></script>
+    <script src="../Jquery/jquery.maskedinput.min.js"></script>
     <style>
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
@@ -33,32 +35,32 @@
 
                             <div class="mb-3">
                                 <label>Nome</label>
-                                <input type="text" name="nome" class="form-control" required>
+                                <input type="text" name="nome" class="form-control" required placeholder="Máximo de 146 caracteres." maxlength="146">
                             </div>
 
                             <div class="mb-3">
                                 <label>Nome Fantasia</label>
-                                <input type="text" name="nome_fantasia" class="form-control" required>
+                                <input type="text" name="nome_fantasia" class="form-control" placeholder="Máximo de 55 caracteres." required maxlength="55">
                             </div>
 
                             <div class="mb-3">
                                 <label>CNPJ</label>
-                                <input type="number" name="CNPJ" class="form-control" required>
+                                <input type="text" name="CNPJ" class="form-control" id="CNPJ" required placeholder="Ex: 99.999.999/9999-99">
                             </div>
 
                             <div class="mb-3">
                                 <label>Endereço</label>
-                                <input type="text" name="endereco" class="form-control" required>
+                                <input type="text" name="endereco" class="form-control" required placeholder="Ex: Araras,SP">
                             </div>
 
                             <div class="mb-3">
                                 <label>Telefone</label>
-                                <input type="number" name="telefone" class="form-control" required>
+                                <input type="text" id="telefone" name="telefone" class="form-control" required placeholder="Ex: (19)9999-9999">
                             </div>
                             
                             <div class="mb-3">
                                 <label>Responsável</label>
-                                <input type="text" name="responsavel" class="form-control" required>
+                                <input type="text" name="responsavel" class="form-control" required placeholder="Máximo de 146 caracteres." maxlength="146">
                             </div>
 
                             <div class="mb-3">
@@ -70,6 +72,10 @@
             </div>
         </div>
     </div>
+    <script>
+        $("#CNPJ").mask("99.999.999/9999-99");
+        $("#telefone").mask("(99)9999-9999");
+    </script>
 <?php
     session_start();
     if(isset($_SESSION["CPF"])){

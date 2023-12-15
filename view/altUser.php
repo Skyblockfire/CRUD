@@ -29,7 +29,7 @@
         $db = new Database();
         
         $usuario = $db->viewUserAlt($_GET['id']);
-        $empresa = $db->viewAltUserCompany($usuario[0]['id_empresa']);
+        $empresa = $db->viewUserCompany();
         ?>
     <div class="container mt-5">
         <div class="row">
@@ -47,50 +47,52 @@
 
                             <div class="mb-3">
                                 <label style="user-select: none;">Nome</label>
-                                <input type="text" name="nome" value="<?=$usuario[0]['Nome']?>" class="form-control" required>
+                                <input type="text" name="nome" value="<?=$usuario[0]['Nome']?>" class="form-control" required placeholder="Máximo de 110 caracteres." required maxlength="110">
                             </div>
 
                             <div class="mb-3">
                                 <label style="user-select: none;">Sobrenome</label>
-                                <input type="text" name="sobrenome" value="<?=$usuario[0]['Sobrenome']?>" class="form-control" required>
+                                <input type="text" name="sobrenome" value="<?=$usuario[0]['Sobrenome']?>" class="form-control" required placeholder="Máximo de 36 caracteres." required maxlength="36">
                             </div>
 
                             <div class="mb-3">
                                 <label style="user-select: none;">Senha</label>
-                                <input type="text" name="senha" value="<?=$usuario[0]['Senha']?>" class="form-control" required>
+                                <input type="text" name="senha" value="<?=$usuario[0]['Senha']?>" class="form-control" required placeholder="Mínimo de 6 caracteres" required minlength="6">
                             </div>
 
                             <div class="mb-3">
                                 <label style="user-select: none;">CPF</label>
-                                <input type="text" name="CPF" value="<?=$usuario[0]['CPF']?>" class="form-control" required>
+                                <input type="text" id="CPF" name="CPF" value="<?=$usuario[0]['CPF']?>" class="form-control" required placeholder="Ex: 999.999.999-99">
                             </div>
 
                             <div class="mb-3">
                                 <label style="user-select: none;">CNH</label>
-                                <input type="number" name="CNH" value="<?=$usuario[0]['CNH']?>" class="form-control" required>
+                                <input type="number" name="CNH" value="<?=$usuario[0]['CNH']?>" class="form-control" required placeholder="Ex: 99999999999" max="99999999999">
                             </div>
 
                             <div class="mb-3">
                                 <label style="user-select: none;">Telefone</label>
-                                <input type="number" name="telefone" value="<?=$usuario[0]['Telefone']?>" class="form-control" required>
+                                <input type="text" id="telefone" name="telefone" value="<?=$usuario[0]['Telefone']?>" class="form-control" required placeholder="Ex: (19) 9999-9999">
                             </div>
 
                             <div class="mb-3">
                                 <label style="user-select: none;">Endereço</label>
-                                <input type="text" name="endereco" value="<?=$usuario[0]['Endereco']?>" class="form-control" required>
+                                <input type="text" name="endereco" value="<?=$usuario[0]['Endereco']?>" class="form-control" required placeholder="Ex: Araras,SP" maxlength="55">
                             </div>
 
                             <div class="mb-3">
                                 <label style="user-select: none;">Carro</label>
-                                <input type="text" name="carro" value="<?=$usuario[0]['Carro']?>" class="form-control" required>
+                                <input type="text" name="carro" value="<?=$usuario[0]['Carro']?>" class="form-control" required placeholder="Ex: Marca,Modelo,Ano" maxlength="55">
                             </div>
 
                             <div class="mb-3">
                                 <label style="user-select: none;">Empresa</label>
-                            <select name="empresa" class="form-control" disabled>
+                            <select name="empresa" class="form-control">
                                 <?php   
-                                    echo "<option value='". $empresa[0]['id_empresa']."'>";
-                                    echo $empresa[0]['Nome']."</option>";
+                                    foreach($empresa as $row){
+                                        $select = ($usuario['id_empresa'] == $row['id_empresa']) ? 'select' : '';
+                                        echo "<option value='{$row['id_empresa']}' $select>{$row['Nome']}</option>";
+                                    }
                                 ?>
                             </select>
                             </div>
@@ -112,6 +114,7 @@
 }?>
     <script>
         $("#CPF").mask("999.999.999-99");
+        $("#telefone").mask("(99)9999-9999");
     </script>
 </body>
 </html>

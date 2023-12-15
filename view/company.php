@@ -14,7 +14,7 @@ session_start();
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <?php if($_SESSION['tipo']){echo'<li class="nav-item">
-          <a class="nav-link active" style="color:white;font-weight:600;" aria-current="page" href="user.php">Usuários</a>
+          <a class="nav-link active" style="color:white;" aria-current="page" href="user.php">Usuários</a>
         </li>';}else?>
         <li class="nav-item">
           <a class="nav-link" style="color:white;font-weight:600;" href="company.php">Empresas</a>
@@ -41,6 +41,7 @@ session_start();
     <title>Empresas</title>
 </head>
 <body>
+    <div class="table-responsive">
     <div class="container" id="marge">
         <div class="row">
             <div class="col-md-12">
@@ -50,7 +51,7 @@ session_start();
                            <?php if($_SESSION['tipo']) echo '<a href="addCompany.php" class="btn btn-success float-end ">Cadastrar Empresa</a>'?>
                         </h4>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -80,7 +81,7 @@ session_start();
                                                 <td>{$row['Responsavel']}</td>";
                                         if($_SESSION['tipo']){echo"<td>
                                             <a href='altCompany.php?id_empresa={$row['id_empresa']}' class='btn btn-primary btn-sm'>Editar</a>
-                                            <a href='../controller/deletar-empresa.php?id_empresa={$row['id_empresa']}' class='btn btn-danger btn-sm'>Deletar</a>
+                                            <a onClick=\" javascript:return confirm('Ao deletar essa empresa todos os funcionários serão deletados também!'); \" href='../controller/deletar-empresa.php?id_empresa={$row['id_empresa']}' class='btn btn-danger btn-sm'>Deletar</a>
                                             </td>
                                         </tr>";}else{
                                             echo "</tr>";
@@ -93,6 +94,7 @@ session_start();
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 <?php

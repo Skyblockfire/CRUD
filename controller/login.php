@@ -14,9 +14,8 @@
             $_SESSION['CPF'] = $CPF;
             echo '<script>location.href="../view/company.php"</script>';
         }else{
-            echo $_POST['CPF'];
-           //echo '<script>alert("Login Inválido")</script>';
-           //echo '<script>location.href="../view/index.html"</script>';
+            echo '<script>alert("Login Inválido")</script>';
+            echo '<script>location.href="../view/index.html"</script>';
         }
     }    
     

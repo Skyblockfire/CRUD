@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <script src="../Jquery/jquery-3.7.1.min.js"></script>
+    <script src="../Jquery/jquery.maskedinput.min.js"></script>
     <style>
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
@@ -16,7 +18,7 @@
             background-size: cover;
         }
     </style>
-    <title>Adicionar Empresa</title>
+    <title>Alterar Empresa</title>
 </head>
 <body>
 <?php 
@@ -43,32 +45,32 @@
 
                             <div class="mb-3">
                                 <label>Nome</label>
-                                <input type="text" name="nome" value="<?=$empresa[0]['Nome']?>"class="form-control" required>
+                                <input type="text" name="nome" value="<?=$empresa[0]['Nome']?>"class="form-control" required placeholder="Máximo de 146 caracteres." maxlength="146">
                             </div>
 
                             <div class="mb-3">
                                 <label>Nome Fantasia</label>
-                                <input type="text" name="nome_fantasia" value="<?=$empresa[0]['Nome_Fantasia']?>" class="form-control" required>
+                                <input type="text" name="nome_fantasia" value="<?=$empresa[0]['Nome_Fantasia']?>" class="form-control" required placeholder="Máximo de 55 caracteres." required maxlength="55">
                             </div>
 
                             <div class="mb-3">
                                 <label>CNPJ</label>
-                                <input type="number" name="CNPJ" value="<?=$empresa[0]['CNPJ']?>" class="form-control" required>
+                                <input type="text" id="CNPJ" name="CNPJ" value="<?=$empresa[0]['CNPJ']?>" class="form-control" required placeholder="Ex: 99.999.999/9999-99">
                             </div>
 
                             <div class="mb-3">
                                 <label>Endereço</label>
-                                <input type="text" name="endereco" value="<?=$empresa[0]['Endereco']?>" class="form-control" required>
+                                <input type="text" name="endereco" value="<?=$empresa[0]['Endereco']?>" class="form-control" required placeholder="Ex: Araras,SP">
                             </div>
 
                             <div class="mb-3">
                                 <label>Telefone</label>
-                                <input type="number" name="telefone" value="<?=$empresa[0]['Telefone']?>" class="form-control" required>
+                                <input type="text" id="telefone" name="telefone" value="<?=$empresa[0]['Telefone']?>" class="form-control" required placeholder="Ex: (19)9999-9999">
                             </div>
                             
                             <div class="mb-3">
                                 <label>Responsável</label>
-                                <input type="text" name="responsavel" value="<?=$empresa[0]['Responsavel']?>" class="form-control" required>
+                                <input type="text" name="responsavel" value="<?=$empresa[0]['Responsavel']?>" class="form-control" required placeholder="Máximo de 146 caracteres." maxlength="146">
                             </div>
 
                             <div class="mb-3">
@@ -80,14 +82,18 @@
             </div>
         </div>
     </div>
+    <script>
+        $("#CNPJ").mask("99.999.999/9999-99");
+        $("#telefone").mask("(99)9999-9999");
+    </script>
 <?php
     session_start();
     if(isset($_SESSION['CPF'])){
 
 }else{
-    echo'<script>alert("deu ruim!");</script>';
     echo'<script>location.href="index.html";</script>';
 }
 ?>
+
 </body>
 </html>

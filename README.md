@@ -5,9 +5,7 @@ Este projeto tem o intuito de ser feito um CRUD em PHP com o paradigma de orient
 1. <a href="https://www.apachefriends.org/pt_br/index.html">Xampp</a> (OBS:É necessário utilizar o Xampp pois possui a linguagem PHP, o Apache e o MySQL já instalados.)<br>
 2. <a href="https://git-scm.com/downloads">Git</a> (Opcional)
 
-# Passo a passo
-
-<h1>Instalação</h1>
+# Passo a passo - Instalação
 <h2>Ambos</h2>
 1. Instale o Xampp com o link fornecido acima. (OBS: Lembre-se em qual diretório você está instalando ele)<br>
 2. Abra o diretório onde instalou o Xampp e procure pela pasta "htdocs".
@@ -40,5 +38,6 @@ Com o banco de dados instalado e o projeto também, basta ir no seu navegador de
 # Observações
 O usuário admin padrão é o CPF: 999999999 SENHA: 1234<br>
 Se quiser cadastrar algum usuário é recomendado que utilize algum Client de MySQL. <br>
+Lembre-se de que quando for importar, será necessário importar em uma table já criada. <br>
 <br>
 Por motivo de segurança não será inserido uma função de adicionar usuários com permissão de administrador direto no sistema.

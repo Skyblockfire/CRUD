@@ -36,6 +36,30 @@
             }
         }
     }
+    public function validationCPF($CPF){
+        $query = $this->banco->prepare("SELECT CPF FROM usuario WHERE CPF = :CPF");
+
+        $query->bindParam(':CPF', $CPF);
+        $query->execute();
+
+        if($query->rowCount() == 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function validationCNPJ($CNPJ){
+        $query = $this->banco->prepare("SELECT CNPJ FROM empresa WHERE CNPJ = :CNPJ");
+        
+        $query->bindParam(':CNPJ', $CNPJ);
+        $query->execute();
+
+        if($query->rowCount() == 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     public function autentica_admin($cpf){
         $query = $this->banco->prepare('SELECT admin FROM usuario WHERE cpf = :cpf');
@@ -195,10 +219,11 @@ public function alterar_usuario($user,$id){
     $telefone = $user->getTelefone();
     $endereco = $user->getEndereco();
     $carro = $user->getCarro();
+    $empresa = $user->getEmpresa();
 
-    $Array = array($admin,$nome,$sobrenome,$senha,$cpf,$cnh,$telefone,$endereco,$carro,$id);
+    $Array = array($admin,$nome,$sobrenome,$senha,$cpf,$cnh,$telefone,$endereco,$carro,$empresa,$id);
 
-    $alterar_usuario = $this->banco->prepare('UPDATE usuario SET admin = ?, Nome = ?, Sobrenome = ?, Senha = ?, CPF = ?, CNH = ?, Telefone = ?, Endereco = ?, Carro = ? WHERE id = ?;');
+    $alterar_usuario = $this->banco->prepare('UPDATE usuario SET admin = ?, Nome = ?, Sobrenome = ?, Senha = ?, CPF = ?, CNH = ?, Telefone = ?, Endereco = ?, Carro = ?, id_empresa = ? WHERE id = ?;');
 
     $alterar_usuario->execute($Array);
 }

@@ -30,7 +30,7 @@ session_start();
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" style="color:white;" aria-current="page" href="user.php">Usuários</a>
+          <a class="nav-link active" style="color:white;font-weight:600;" aria-current="page" href="user.php">Usuários</a>
         </li>
          <li class="nav-item">
           <a class="nav-link" style="color:white;" href="company.php">Empresas</a>
@@ -41,6 +41,7 @@ session_start();
   </div>
 </nav>
 <!-- INÍCIO SITE -->
+<div class="table-responsive">
     <div class="container" id="marge">
         <div class="row">
             <div class="col-md-12">
@@ -50,7 +51,7 @@ session_start();
                             <a href="addUser.php" class="btn btn-success float-end ">Cadastrar Usuario</a>
                         </h4>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -83,7 +84,7 @@ session_start();
                                                 <td>{$row['Empresa']}</td>";
                                         if($_SESSION['tipo']){echo"<td>
                                             <a href='altUser.php?id={$row['id']}' class='btn btn-primary btn-sm'>Editar</a>
-                                            <a href='../controller/deletar-usuario.php?id={$row['id']}' class='btn btn-danger btn-sm'>Deletar</a>
+                                            <a onClick=\" javascript:return confirm('Tem certeza que quer deletar este usuário?'); \" href='../controller/deletar-usuario.php?id={$row['id']}' class='btn btn-danger btn-sm'>Deletar</a>
                                             </td>
                                         </tr>";}else{
                                             echo "</tr>";
@@ -97,6 +98,7 @@ session_start();
             </div>
         </div>
     </div>
+</div>
 </body>
 <?php
 if(isset($_SESSION["CPF"]) && $_SESSION['tipo']){

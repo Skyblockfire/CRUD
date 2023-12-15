@@ -35,11 +35,13 @@ if(($db->autentica_admin($_SESSION['CPF'])) && ($_SESSION['tipo'] == 1)){
     
     $db->alterar_empresa($company,$_POST['id_empresa']);
     
-    echo '<script>alert("Empresa alterada!")</script>';
-    echo '<script>location.href="../view/addCompany.php"</script>';}
+    echo '<script>alert("Empresa atualizada!")</script>';
+    echo '<script>location.href="../view/Company.php"</script>';
+   
+        }
 }else{
     echo '<script>alert("Erro, você não é um administrador.")</script>';
-    echo '<script>location.href="../view/home.php"</script>';
+    echo '<script>location.href="../view/index.html"</script>';
 }
 
 

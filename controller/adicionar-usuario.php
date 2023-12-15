@@ -38,12 +38,15 @@ if(($db->autentica_admin($_SESSION['CPF'])) && ($_SESSION['tipo'] == 1)){
     $empresa = $_POST["empresa"];
     
     $user = new User($nome, $sobrenome, $senha, $cpf, $cnh, $telefone, $endereco, $carro, $empresa);
-    
-    $db->cadastrar_usuario($user);
-    
-    echo '<script>alert("Usuario cadastrado!")</script>';
-    echo '<script>location.href="../view/addUser.php"</script>';
+    if($db->validationCPF($cpf)){
+        $db->cadastrar_usuario($user);
+        echo '<script>alert("Usuario cadastrado!")</script>';
+        echo '<script>location.href="../view/addUser.php"</script>';
+    }else{
+        echo '<script>alert("Esse CPF já foi cadastrado!")</script>';
+        echo '<script>location.href="../view/user.php"</script>';
     }
+        }
 }else{
     echo '<script>alert("Erro, você não é um administrador.")</script>';
     echo '<script>location.href="../view/home.php"</script>';

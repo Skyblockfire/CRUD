@@ -30,11 +30,16 @@ if(($db->autentica_admin($_SESSION['CPF'])) && ($_SESSION['tipo'] == 1)){
     $responsavel = $_POST["responsavel"];
     
     $company = new Empresa($nome, $nome_fantasia, $cnpj, $endereco, $telefone, $responsavel);
+    if($db->validationCNPJ($cnpj)){
+        $db->cadastrar_empresa($company);
     
-    $db->cadastrar_empresa($company);
-    
-    echo '<script>alert("Empresa cadastrada!")</script>';
-    echo '<script>location.href="../view/addCompany.php"</script>';}
+        echo '<script>alert("Empresa cadastrada!")</script>';
+        echo '<script>location.href="../view/addCompany.php"</script>';}
+    else{
+        echo '<script>alert("Esse CNPJ já foi cadastrado!")</script>';
+        echo '<script>location.href="../view/company.php"</script>';
+    }
+         }
 }else{
     echo '<script>alert("Erro, você não é um administrador.")</script>';
     echo '<script>location.href="../view/home.php"</script>';
