@@ -67,7 +67,7 @@
 
                             <div class="mb-3">
                                 <label style="user-select: none;">CNH</label>
-                                <input type="number" name="CNH" value="<?=$usuario[0]['CNH']?>" class="form-control" required placeholder="Ex: 99999999999" max="99999999999">
+                                <input type="text" name="CNH" value="<?=$usuario[0]['CNH']?>" class="form-control" required placeholder="Ex: 99999999999">
                             </div>
 
                             <div class="mb-3">
@@ -114,6 +114,7 @@
 }?>
     <script>
         $("#CPF").mask("999.999.999-99");
+        $("#cnh").mask("99999999999");
         $("#telefone").mask("(99)9999-9999");
     </script>
 </body>
