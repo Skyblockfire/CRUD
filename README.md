@@ -36,7 +36,7 @@ Com os serviços/módulos inicializados basta acessar o <a href="http://localhos
 Com o banco de dados instalado e o projeto também, basta ir no seu navegador de preferência e digitar "localhost" no espaço de URL.
 
 # Observações
-O usuário admin padrão é o CPF: 999999999 SENHA: 1234<br>
+O usuário admin padrão é o CPF: 999.999.999-99 SENHA: 1234<br>
 Se quiser cadastrar algum usuário é recomendado que utilize algum Client de MySQL. <br>
 Lembre-se de que quando for importar, será necessário importar em uma table já criada. <br>
 <br>
